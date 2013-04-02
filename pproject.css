@@ -1,1 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700);
+
+#moz-logo {
+  border: none;
+  box-shadow: none;
+}
