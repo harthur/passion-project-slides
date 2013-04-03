@@ -72,6 +72,85 @@
             <img src="images/no-cat.jpg"></img>
           </div>
         </section>
+        <section id="classifier">
+          <h1>We need a classifier</h1>
+          <ul>
+            <li>Takes a piece of data, tells you what class it's in</li>
+            <li>Usually by training on data with known classifications</li>
+            <li>Bayesian (spam), k-nearest neighbors, neural networks, support vector machines.</li>
+        </section>
+        <section id="svms">
+          <h1>Support Vector Machines</h1>
+          <ul>
+            <li>trained with labelled data</li>
+            <li>each piece of data is a vector of numbers</li>
+            <li>label is -1 or 1</li>
+          </ul>
+        </section>
+        <section id="format">
+          <h1>Input and Output</h1>
+          <h4>label/output is 1 if it's a cat, -1 if not</h4>
+          <h4>input is [?,?,?, ....]
+        </section>
+        <section id="input">
+          <h1>What's the input?</h1>
+          <h3>pixels</h3>
+          <div class="head-images">
+            <img src="images/cat1.jpg"></img>
+            <img src="images/cat2.jpg"></img>
+            <img src="images/cat3.jpg"></img>
+            <img src="images/cat4.jpg"></img>
+          </div>
+          <h4>too much information</h4>
+          <h3>edges</h3>
+          <div class="head-images">
+            <img src="images/cat1-mag.jpg"></img>
+            <img src="images/cat2-mag.jpg"></img>
+            <img src="images/cat3-mag.jpg"></img>
+            <img src="images/cat4-mag.jpg"></img>
+          </div>
+          <h4>leaves shape information</h4>
+        </section>
+        <section id="hog">
+          <h1>Histogram of Oriented Gradients</h1>
+          <ul>
+            <li>"HOG descriptor"</li>
+            <li>captures strength + direction of edges</li>
+            <li>Pixels -> array of #s (perfect!)</li>
+            <li>48 x 48 canvas -> HOG of length 1176</li>
+          </ul>
+        </section>
+        <section id="collection">
+          <h1>Collection</h1>
+          <ul>
+            <li>negatives: 1000s of random non-cat image crops</li>
+            <li>positives: 1000s of cat head crops</li>
+            <ul>
+              <li>
+                <a href="http://137.189.35.203/WebUI/CatDatabase/catData.html">
+                    cat dataset</a> annotated with locations of ears, eyes, nose
+              <li>
+              <li>rotate so eyes are level and crop to frame cat head</li>
+            </ul>
+          </ul>
+        </section>
+        <section id="training">
+          <h1>Training</h1>
+          <pre><code>
+var hog = require("hog-descriptor");
+var svm = require("svm");
+
+var inputs = [];
+var labels = [];
+for (var i in pics) {
+  inputs[i] = hog.extractHOG(pics[i].canvas);
+  labels[i] = pics[i].isCat ? 1 : -1;
+}
+
+var SVM = new svm.SVM();
+SVM.train(inputs, labels);
+          </code></pre>
+        </section>
       </div>
     </div>
 
