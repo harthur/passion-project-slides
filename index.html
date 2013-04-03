@@ -140,16 +140,92 @@
 var hog = require("hog-descriptor");
 var svm = require("svm");
 
-var inputs = [];
-var labels = [];
-for (var i in pics) {
-  inputs[i] = hog.extractHOG(pics[i].canvas);
-  labels[i] = pics[i].isCat ? 1 : -1;
-}
+function train(pics) {
+  var inputs = [];
+  var labels = [];
+  for (var i in pics) {
+    inputs[i] = hog.extractHOG(pics[i].canvas);
+    labels[i] = pics[i].isCat ? 1 : -1;
+  }
 
-var SVM = new svm.SVM();
-SVM.train(inputs, labels);
+  var SVM = new svm.SVM();
+  SVM.train(inputs, labels);
+}
           </code></pre>
+        </section>
+        <section id="state">
+          <h1>What training does</h1>
+          <h4>Training finds these numbers:</h4>
+          <h4><code>SVM.toJSON()</code></h4>
+          <pre><code>
+{
+  "N": 200,
+  "D": 1176,
+  "b": -1.9007738283614,
+  "kernelType": "linear",
+  "w": [
+    -0.039986109425303,
+    -0.10320175974183,
+    0.047456416498616,
+    -0.059351675560768,
+    0.058363533996746,
+    -0.030757724103858,
+    -0.077885096059827,
+    -0.10909238884521,
+    -0.027176815631789,
+    0.011213708955119,
+    0.11097928973275,
+    0.02171080491539,
+    0.087237563435941,
+    -0.011851994166769,
+    -0.083436869138139,
+    0.03666910365707,
+    -0.04060984443935,
+    0.018076869381974,
+    -0.030717675854092,
+    -0.053448579335487
+    ,...]
+}
+          </code></pre>
+        </section>
+        <section id="predicting">
+          <h4>Is this section a cat head?</h4>
+          <pre><code>
+function isCat(canvas) {
+  var descriptor = hog.extractHOG(canvas);
+
+  var result = SVM.predictOne(descriptor);
+  return result == 1;
+}
+        </section>
+        <section id="windows">
+          <h4>Does this image contain a cat?</h4>
+          <ul>
+            <li>Test "windows" at different scales, locations</li>
+            <li>Combine overlapping detections</li>
+            <li>Weed out spurious detections</li>
+          </ul>
+        </section>
+        <section id="demo">
+          <h1>Demo</h1>
+          <h3><a href="http://harthur.github.com/kittydar">http://harthur.github.com/kittydar</a></h3>
+        </section>
+        <section>
+        <section id="ml-in-js">
+          <h1>Machine Learning in JS</h1>
+          <h4>Libraries</h4>
+          <ul>
+            <li>Support Vector Machines</li>
+            <li>Neural Networks</li>
+            <li>Clustering</li>
+            <li>Bayesian classifier</li>
+          </ul>
+          <h4>Applications</h4>
+            <li><a href="http://liuliu.me/ccv/js/nss/">real-time face detection</a>
+            <li><a href="https://github.com/mtschirs/js-objectdetect">
+              Face, hand, eye detection
+              </a>
+            </li>
         </section>
       </div>
     </div>
