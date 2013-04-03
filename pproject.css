@@ -1,6 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700);
 
-#moz-logo {
+#moz-logo, #cat-pics {
   border: none;
   box-shadow: none;
+}
+
+#cat-pics {
+  width: 600px;
+  vertical-align: middle;
+}
+
+#qs {
+  font-size: 200%;
+  vertical-align: middle;
+}
+
+#big-cat {
+  width: 600px;
+}
+
+#section-pics > img {
+  width: 240px;
+  margin: 0px 28px;
 }
