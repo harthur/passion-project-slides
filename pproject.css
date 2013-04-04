@@ -10,6 +10,14 @@ li {
   margin-top: 0.3em !important;
 }
 
+.group {
+  margin-bottom: 1em !important;
+}
+
+.plain-list {
+  list-style-type: none !important;
+}
+
 #ml-title {
   font-size: 3em;
 }
@@ -40,6 +48,14 @@ li {
 
 .head-images img {
   width: 100px;
+}
+
+.img-src {
+  font-size: 90%;
+}
+
+#robo-cat {
+  width: 300px;
 }
 
 .good {
