@@ -57,7 +57,7 @@
             <span id="qs">???</span>
           </h2>
         </section>
-        <section "cat-detection">
+        <section id="cat-detection" data-state="transition-slide">
           <h1>Cat Detection</h1>
           <img src="images/radar-cat.jpg"></img>
         </section>
@@ -139,68 +139,42 @@
         </section>
         <section id="training">
           <h1>Training</h1>
-          <pre><code class="javascript">
-var hog = require("hog-descriptor");
+          <pre><code class="javascript">var hog = require("hog-descriptor");
 var svm = require("svm");
 
 var SVM = new svm.SVM();
 
 function train(pics) {
   var inputs = [], labels = [];
+
   for (var i in pics) {
     inputs[i] = hog.extractHOG(pics[i].canvas);
     labels[i] = pics[i].isCat ? 1 : -1;
   }
 
   SVM.train(inputs, labels);
-}
-          </code></pre>
+}</code></pre>
         </section>
         <section id="state">
           <h2>What training does</h2>
-          <h4>Training finds these numbers:</h4>
           <h4><code>SVM.toJSON()</code></h4>
-          <pre><code class="json">
-{
+          <pre><code class="json">{
   "N": 200,
   "D": 1176,
   "b": -1.9007738283614,
   "kernelType": "linear",
-  "w": [
-    -0.039986109425303,
-    -0.10320175974183,
-    0.047456416498616,
-    -0.059351675560768,
-    0.058363533996746,
-    -0.030757724103858,
-    -0.077885096059827,
-    -0.10909238884521,
-    -0.027176815631789,
-    0.011213708955119,
-    0.11097928973275,
-    0.02171080491539,
-    0.087237563435941,
-    -0.011851994166769,
-    -0.083436869138139,
-    0.03666910365707,
-    -0.04060984443935,
-    0.018076869381974,
-    -0.030717675854092,
-    -0.053448579335487
-    ,...]
-}
-          </code></pre>
+  "w": [-0.039986109425303, -0.10320175974183, 0.047456416498616, -0.059351675560768, 0.058363533996746, -0.030757724103858, -0.077885096059827,-0.10909238884521, -0.027176815631789, 0.011213708955119,0.11097928973275, 0.02171080491539, 0.087237563435941, -0.011851994166769, -0.083436869138139,0.03666910365707, -0.04060984443935, 0.018076869381974, -0.030717675854092, -0.053448579335487
+  ,...]
+}</code></pre>
         </section>
         <section id="predicting">
           <h2>Is this section a cat head?</h2>
-          <pre><code class="javascript">
-function isCat(canvas) {
+          <pre><code class="javascript">function isCat(canvas) {
   var descriptor = hog.extractHOG(canvas);
 
   var result = SVM.predictOne(descriptor);
   return result == 1;
-}
-          </pre></code>
+}</pre></code>
         </section>
         <section id="windows">
           <h2>Does this image contain a cat?</h2>
@@ -210,9 +184,11 @@ function isCat(canvas) {
             <li>Weed out spurious detections</li>
           </ul>
         </section>
-        <section id="demo">
+        <section id="demo" data-state="transition-slide">
           <h1>Demo</h1>
-          <h3><a href="http://harthur.github.com/kittydar">http://harthur.github.com/kittydar</a></h3>
+          <h3><a class="blendin"
+            href="http://harthur.github.com/kittydar">harthur.github.com/kittydar
+          </a></h3>
         </section>
         <section id="ml-in-js">
           <h1>ML in JS</h1>
@@ -220,7 +196,7 @@ function isCat(canvas) {
             <li>node.js - collection, training</li>
             <li>Typed arrays - 2x faster</li>
             <li>Web Workers - don't block page</li>
-            <li>Still need: building blocks, more speed improvements</li>
+            <li>Still need: building blocks, more speed</li>
           </ul>
         </section>
         <section id="ml-in-js">
@@ -228,19 +204,18 @@ function isCat(canvas) {
           <div class="group">
           <h4>Libraries:</h4>
           <ul>
-            <a href="http://github.com/harthur/brain">Neural Networks</a>,
-            <a href="http://github.com/karpathy/svmjs">Support Vector Machines</a>,
-            <a href="http://github.com/harthur/clusterfck">Clustering</a>,
-            <a href="http://github.com/harthur/classifier">Bayesian</a>,
-            <a href="https://github.com/NaturalNode/natural">Natural Language Processing</a>
+            <a href="http://github.com/harthur/brain">neural networks</a>,
+            <a href="http://github.com/karpathy/svmjs">support vector machines</a>,
+            <a href="http://github.com/harthur/clusterfck">clustering</a>,
+            <a href="http://github.com/harthur/classifier">bayesian</a>,
+            <a href="https://github.com/NaturalNode/natural">natural language processing</a>
           </ul>
         </div>
         <div class="group">
           <h4>Applications:</h4>
-            <a href="http://liuliu.me/ccv/js/nss/">Real-time face detection</a>,
+            <a href="http://liuliu.me/ccv/js/nss/">real-time face detection</a>,
               <a href="https://github.com/mtschirs/js-objectdetect">
-              Hand and eye detection
-              </a>,
+              hand and eye detection</a>,
             <a href="http://ejohn.org/blog/ocr-and-neural-nets-in-javascript/">
               OCR Captcha solving</a>
           </div>

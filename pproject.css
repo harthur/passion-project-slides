@@ -1,5 +1,6 @@
 h1 {
   margin-bottom: 0.6em !important;
+  font-size: 3em !important;
 }
 
 h2 {
@@ -8,6 +9,11 @@ h2 {
 
 li {
   margin-top: 0.3em !important;
+}
+
+pre > code {
+  white-space: pre-wrap;
+  padding: 1em !important;
 }
 
 .group {
@@ -25,6 +31,23 @@ li {
 #moz-logo, #cat-pics {
   border: none;
   box-shadow: none;
+}
+
+html.transition-slide > body {
+  background: rgb(25, 25, 25) !important;
+  background-color: rgb(25, 25, 25) !important;
+}
+
+html.transition-slide .reveal {
+  color: white !important;
+}
+
+.blendin {
+  color: inherit !important;
+}
+
+#cat-detection {
+  color: rgb(86, 204, 255);
 }
 
 #cat-pics {
@@ -59,12 +82,12 @@ li {
 }
 
 .good {
-  color: rgb(16, 164, 247);
+  color: rgb(16, 164, 247) !important;
   font-weight: bold !important;
 }
 
 .bad {
-  color: rgb(170, 0, 0);
+  color: rgb(170, 0, 0) !important;
   font-weight: bold !important;
 }
 

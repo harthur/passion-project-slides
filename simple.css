@@ -41,9 +41,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: black;
   font-family: "Oswald", Impact, sans-serif;
-  line-height: 0.9em;
+  line-height: 1em;
   letter-spacing: 0.02em;
   text-transform: none;
   text-shadow: none; }
