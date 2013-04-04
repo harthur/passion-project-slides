@@ -33,6 +33,14 @@ pre > code {
   box-shadow: none;
 }
 
+html.ml-fun > body {
+  background-color: rgb(94, 119, 241);
+  background-image: url("images/fun-ml.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 html.transition-slide > body {
   background: rgb(25, 25, 25) !important;
   background-color: rgb(25, 25, 25) !important;
@@ -75,6 +83,10 @@ html.transition-slide .reveal {
 
 .img-src {
   font-size: 90%;
+}
+
+.demo-link {
+  font-size: 1.2em !important;
 }
 
 #robo-cat {
