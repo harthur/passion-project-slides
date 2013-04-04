@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="reveal.min.css"/>
     <link rel="stylesheet" href="simple.css"/>
     <link rel="stylesheet" href="pproject.css"/>
+    <script src="highlight.js"></script>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section id="intro">
-           <h1>Passion Project</h1>
-           <h2>Machine Learning in JavaScript</h2>
            <div>Heather Arthur</div>
            <div>@harthvader</div>
            <div>github/harthur</div>
@@ -25,10 +24,11 @@
           <img src="images/devtools.png"></img>
         </section>
         <section id="machine-learning">
-          <h1>Machine Learning</h1>
+          <h1 id="ml-title">Machine Learning</h1>
+          <h3>in JavaScript</h3>
         </section>
         <section id="ml-example">
-          <h2>ML applications</h2>
+          <h2>Applications of ML</h2>
           <ul>
             <li>spam filtering</li>
             <li>face detection</li>
@@ -38,8 +38,9 @@
         </section>
         <section id="ml-difference">
           <ul>
-            <li>traditional computation: hand-chosen conditionals and params</li>
-            <li>ML algorithms: rules are learned from data</li>
+            <li><span class="bad">
+              traditional computation</span>: hand-chosen conditionals and params</li>
+            <li><span class="good">ML algorithms</span>: rules are learned from data</li>
           </ul>
         </section>
         <section id="javascript">
@@ -60,64 +61,63 @@
           <img src="images/radar-cat.jpg"></img>
         </section>
         <section id="full-image">
-          <h1>Breaking it down</h1>
-          <h4>does this image contain a cat?</h4>
+          <h2>Breaking it down</h2>
+          <h3>does this image contain a cat?</h3>
           <img id="big-cat" src="images/big-cat.jpg"></img>
         </section>
         <section id="image-part">
-          <h1>Breaking it down</h1>
-          <h4>is this section a cat head?</h4>
+          <h2>Breaking it down</h2>
+          <h3>is this section a cat head?</h3>
           <div id="section-pics">
             <img src="images/cat-head.jpg"></img>
             <img src="images/no-cat.jpg"></img>
           </div>
         </section>
         <section id="classifier">
-          <h1>We need a classifier</h1>
+          <h2>We need a <span class="good">classifier</span></h2>
           <ul>
             <li>Takes a piece of data, tells you what class it's in</li>
-            <li>Usually by training on data with known classifications</li>
-            <li>Bayesian (spam), k-nearest neighbors, neural networks, support vector machines.</li>
+            <li>Trained on data with known classifications</li>
+            <li>Bayesian (spam), k-nearest neighbors, neural networks,
+                <span class="chosen">support vector machines</span></li>
         </section>
         <section id="svms">
-          <h1>Support Vector Machines</h1>
+          <h2>Support Vector Machines</h2>
           <ul>
             <li>trained with labelled data</li>
-            <li>each piece of data is a vector of numbers</li>
-            <li>label is -1 or 1</li>
+            <li>each piece of data is a vector (array) of numbers</li>
+            <li>label/output is <code>1</code> if it's a cat,
+              <code>-1</code> if not
+            </li>
+            <li>input is <code>[?,?,?,...]</code></li>
           </ul>
         </section>
-        <section id="format">
-          <h1>Input and Output</h1>
-          <h4>label/output is 1 if it's a cat, -1 if not</h4>
-          <h4>input is [?,?,?, ....]
-        </section>
         <section id="input">
-          <h1>What's the input?</h1>
-          <h3>pixels</h3>
+          <h2>What's the input?</h2>
+          <div>pixels</div>
           <div class="head-images">
             <img src="images/cat1.jpg"></img>
             <img src="images/cat2.jpg"></img>
             <img src="images/cat3.jpg"></img>
             <img src="images/cat4.jpg"></img>
           </div>
-          <h4>too much information</h4>
-          <h3>edges</h3>
+          <div class="bad">too much information</div>
+          <div>edges</div>
           <div class="head-images">
             <img src="images/cat1-mag.jpg"></img>
             <img src="images/cat2-mag.jpg"></img>
             <img src="images/cat3-mag.jpg"></img>
             <img src="images/cat4-mag.jpg"></img>
           </div>
-          <h4>leaves shape information</h4>
+          <div class="good">leaves shape information</div>
         </section>
         <section id="hog">
-          <h1>Histogram of Oriented Gradients</h1>
+          <h2>Histogram of Oriented Gradients</h2>
           <ul>
             <li>"HOG descriptor"</li>
             <li>captures strength + direction of edges</li>
             <li>Pixels -> array of #s (perfect!)</li>
-            <li>48 x 48 canvas -> HOG of length 1176</li>
+            <li><code>48x48</code> canvas -> HOG of length <code>1176</code></li>
           </ul>
         </section>
         <section id="collection">
@@ -129,35 +129,35 @@
               <li>
                 <a href="http://137.189.35.203/WebUI/CatDatabase/catData.html">
                     cat dataset</a> annotated with locations of ears, eyes, nose
-              <li>
               <li>rotate so eyes are level and crop to frame cat head</li>
             </ul>
+            <li>resize to <code>48x48</code>
           </ul>
         </section>
         <section id="training">
           <h1>Training</h1>
-          <pre><code>
+          <pre><code class="javascript">
 var hog = require("hog-descriptor");
 var svm = require("svm");
 
+var SVM = new svm.SVM();
+
 function train(pics) {
-  var inputs = [];
-  var labels = [];
+  var inputs = [], labels = [];
   for (var i in pics) {
     inputs[i] = hog.extractHOG(pics[i].canvas);
     labels[i] = pics[i].isCat ? 1 : -1;
   }
 
-  var SVM = new svm.SVM();
   SVM.train(inputs, labels);
 }
           </code></pre>
         </section>
         <section id="state">
-          <h1>What training does</h1>
+          <h2>What training does</h2>
           <h4>Training finds these numbers:</h4>
           <h4><code>SVM.toJSON()</code></h4>
-          <pre><code>
+          <pre><code class="json">
 {
   "N": 200,
   "D": 1176,
@@ -189,17 +189,18 @@ function train(pics) {
           </code></pre>
         </section>
         <section id="predicting">
-          <h4>Is this section a cat head?</h4>
-          <pre><code>
+          <h2>Is this section a cat head?</h2>
+          <pre><code class="javascript">
 function isCat(canvas) {
   var descriptor = hog.extractHOG(canvas);
 
   var result = SVM.predictOne(descriptor);
   return result == 1;
 }
+          </pre></code>
         </section>
         <section id="windows">
-          <h4>Does this image contain a cat?</h4>
+          <h2>Does this image contain a cat?</h2>
           <ul>
             <li>Test "windows" at different scales, locations</li>
             <li>Combine overlapping detections</li>
@@ -210,22 +211,46 @@ function isCat(canvas) {
           <h1>Demo</h1>
           <h3><a href="http://harthur.github.com/kittydar">http://harthur.github.com/kittydar</a></h3>
         </section>
-        <section>
         <section id="ml-in-js">
-          <h1>Machine Learning in JS</h1>
+          <h1>ML in JS</h1>
+          <ul>
+            <li>node.js - collection, training</li>
+            <li>Typed arrays - 2x faster</li>
+            <li>Web Workers - don't block page</li>
+            <li>Still need: building blocks, more speed improvements</li>
+          </ul>
+        </section>
+        <section id="ml-in-js">
+          <h1>ML in JS</h1>
           <h4>Libraries</h4>
           <ul>
-            <li>Support Vector Machines</li>
             <li>Neural Networks</li>
+            <li>Support Vector Machines</li>
             <li>Clustering</li>
             <li>Bayesian classifier</li>
           </ul>
           <h4>Applications</h4>
-            <li><a href="http://liuliu.me/ccv/js/nss/">real-time face detection</a>
-            <li><a href="https://github.com/mtschirs/js-objectdetect">
-              Face, hand, eye detection
+            <a href="http://liuliu.me/ccv/js/nss/">real-time face detection</a>
+              <a href="https://github.com/mtschirs/js-objectdetect">
+              Hand and eye detection
               </a>
+            <a href="http://ejohn.org/blog/ocr-and-neural-nets-in-javascript/">
+              OCR Captcha solving</a>
+        </section>
+        <section id="ml-info">
+          <h1>DIY</h1>
+          <ul>
+            <li>There's more</li>
+            <li>Stanford Machine Learning (starts April 22!)
+              <a href="http://coursera.org/course/ml">coursera.org/course/ml</a>
             </li>
+            <li>
+              Starting with a problem and going from there
+            </li>
+          </ul>
+        </section>
+        <section id="the-end">
+          <img src="robo-cat-sandra-honestly"></img>
         </section>
       </div>
     </div>
@@ -273,5 +298,10 @@ function isCat(canvas) {
 
     });
     </script>
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="highlight-github.css">
+    <script src="highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

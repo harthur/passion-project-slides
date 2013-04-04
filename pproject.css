@@ -1,4 +1,18 @@
-@import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700);
+h1 {
+  margin-bottom: 0.6em !important;
+}
+
+h2 {
+  margin-bottom: 0.6em !important;
+}
+
+li {
+  margin-top: 0.3em !important;
+}
+
+#ml-title {
+  font-size: 3em;
+}
 
 #moz-logo, #cat-pics {
   border: none;
@@ -22,4 +36,22 @@
 #section-pics > img {
   width: 240px;
   margin: 0px 28px;
+}
+
+.head-images img {
+  width: 100px;
+}
+
+.good {
+  color: rgb(16, 164, 247);
+  font-weight: bold !important;
+}
+
+.bad {
+  color: rgb(170, 0, 0);
+  font-weight: bold !important;
+}
+
+.chosen {
+  font-weight: bold !important;
 }
