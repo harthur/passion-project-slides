@@ -12,10 +12,12 @@
     <div class="reveal">
       <div class="slides">
         <section id="intro">
-           <h2>Passion Project</h2>
-           <div>Heather Arthur</div>
-           <div>@harthvader</div>
-           <div>github/harthur</div>
+          <h2 class="group">Passion Project</h2>
+          <div id="my-info">
+            <div>Heather Arthur</div>
+            <div>@harthvader</div>
+            <div>github/harthur</div>
+          </div>
         </section>
         <section id="mozilla">
           <img id="moz-logo" src="images/moz-firefox.png"></img>
@@ -61,12 +63,14 @@
         </section>
         <section id="the-problem">
           <h1>The Problem</h1>
-          <h4>Should I bother?...</h4>
-          <h3>Does it have cat pics?</h3>
-          <h2 id="cat-q">
+          <ul class="plain-list">
+          <li class="fragment level level-1">Should I bother?...</li>
+          <li class="fragment level level-2">Does it have cat pics?</li>
+          <li class="fragment level level-3">
             <img id="cat-pics" src="images/cat-pics.png"></img>
             <span id="qs">???</span>
-          </h2>
+          </li>
+        </ul>
         </section>
         <section id="cat-detection" data-state="transition-slide">
           <h1>Cat Detection</h1>
@@ -106,23 +110,28 @@
         </section>
         <section id="input">
           <h2>What's the input?</h2>
-          <div class="group">Pixels
+          <div class="group ">
+            <div class="fragment">Pixels
             <div class="head-images">
               <img src="images/cat1.jpg"></img>
               <img src="images/cat2.jpg"></img>
               <img src="images/cat3.jpg"></img>
               <img src="images/cat4.jpg"></img>
             </div>
-            <div class="bad">too much information</div>
+            </div>
+            <div class="bad fragment">too much information</div>
           </div>
-          <div class="group">Edges
+          <div class="group ">
+            <div class="fragment">
+             Edges
             <div class="head-images">
               <img src="images/cat1-mag.jpg"></img>
               <img src="images/cat2-mag.jpg"></img>
               <img src="images/cat3-mag.jpg"></img>
               <img src="images/cat4-mag.jpg"></img>
             </div>
-            <div class="good">leaves shape information</div>
+          </div>
+            <div class="good fragment">leaves shape information</div>
           </div>
         </section>
         <section id="hog">
@@ -235,11 +244,11 @@ function train(pics) {
           <h1>DIY</h1>
           <ul>
             <li>There's more</li>
-            <li>Stanford Machine Learning (<span class="good">starts April 22</span>!)
+            <li class="fragment">Stanford Machine Learning (<span class="good">starts April 22</span>!)
               <a href="http://coursera.org/course/ml">coursera.org/course/ml</a>
             </li>
-            <li>
-              Starting with a problem and going from there
+            <li class="fragment">
+              Starting with a problem and going from there.
             </li>
           </ul>
         </section>

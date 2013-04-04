@@ -24,6 +24,18 @@ pre > code {
   list-style-type: none !important;
 }
 
+.level:nth-child(n+2) {
+  margin-top: 30px !important;
+}
+
+.level-2 {
+  font-size: 1.2em !important;
+}
+
+.level-3 {
+  font-size: 1.3em !important;
+}
+
 #ml-title {
   font-size: 3em;
 }
@@ -31,6 +43,10 @@ pre > code {
 #moz-logo, #cat-pics {
   border: none;
   box-shadow: none;
+}
+
+#my-info {
+  font-size: 1.05em !important;
 }
 
 html.ml-fun > body {
@@ -82,7 +98,9 @@ html.transition-slide .reveal {
 }
 
 .img-src {
-  font-size: 90%;
+  display: inline-block;
+  margin-top: 160px !important;
+  font-size: 70% !important;
 }
 
 .demo-link {
