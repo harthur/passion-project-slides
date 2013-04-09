@@ -139,7 +139,7 @@
           <ul>
             <li>"HOG descriptor"</li>
             <li>captures strength + direction of edges</li>
-            <li>Pixels -> array of #s (perfect!)</li>
+            <li>Pixels -> array of #s (<span class="good">perfect</span>)</li>
             <li><code>48x48</code> canvas -> HOG of length <code>1176</code></li>
           </ul>
         </section>
@@ -214,7 +214,7 @@ function train(pics) {
           <h1>ML in JS</h1>
           <ul>
             <li>node.js - collection, training</li>
-            <li>Typed arrays - 2x faster</li>
+            <li>Typed arrays - 2x faster training</li>
             <li>Web Workers - don't block page</li>
             <li>Still need: building blocks, more speed</li>
           </ul>
@@ -242,7 +242,14 @@ function train(pics) {
         <section id="ml-info">
           <h1>DIY</h1>
           <ul>
-            <li>There's more</li>
+            <li>There's more to ML
+                <ul>
+                  <li>More than classification</li>
+                  <li>Don't always do
+                    <a href="">training</a> or have <a href="">labelled data</a></li>
+                  <li>But you always have data</li>
+                </ul>
+            </li>
             <li class="fragment">Stanford Machine Learning (<span class="good">starts April 22</span>!)
               <a href="http://coursera.org/course/ml">coursera.org/course/ml</a>
             </li>

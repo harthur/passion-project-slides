@@ -11,6 +11,10 @@ li {
   margin-top: 0.3em !important;
 }
 
+ul ul > li {
+  list-style-type: circle;
+}
+
 pre > code {
   white-space: pre-wrap;
   padding: 1em !important;
