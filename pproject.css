@@ -15,6 +15,10 @@ li {
   margin-top: 0.5em !important;
 }
 
+.big-list > li {
+  margin-top: 0.3em !important;
+}
+
 ul ul > li {
   list-style-type: circle;
 }
@@ -128,6 +132,10 @@ html.transition-slide .reveal {
   font-size: 1.2em !important;
 }
 
+.demo-link:hover {
+  color: rgb(16, 164, 247) !important;
+}
+
 .svm-val {
   color: rgb(0, 128, 128) !important;
 }
@@ -150,6 +158,14 @@ html.transition-slide .reveal {
 
 #robo-cat {
   width: 300px;
+}
+
+.negatives > img {
+  border: 0.15em solid hsl(360, 73%, 80%) !important;
+}
+
+.positives > img {
+  border: 0.15em solid hsl(112, 65%, 80%) !important;
 }
 
 .good {

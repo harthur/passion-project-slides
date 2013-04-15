@@ -17,8 +17,8 @@
             <div class="intro-date">April 4, 2013</div></div>
           <div id="my-info">
             <span>Heather Arthur</span> |
-            <span>@harthvader</span> |
-            <span>github/harthur</span>
+            <a href="https://twitter.com/harthvader">@harthvader</a> |
+            <a href="https://github.com/harthur">github/harthur</a>
           </div>
         </section>
         <section id="mozilla">
@@ -147,17 +147,29 @@
         </section>
         <section id="collection">
           <h1>Collection</h1>
-          <ul>
-            <li>negatives: 1000s of random non-cat image crops</li>
-            <li>positives: 1000s of cat head crops</li>
+          <ul class="med-list">
+            <li>negatives: <code>1000</code>s of random non-cat crops</li>
+            <li>positives: <code>1000</code>s of cat head crops</li>
             <ul>
               <li>
                 <a href="http://137.189.35.203/WebUI/CatDatabase/catData.html">
                     cat dataset</a> with locations of ears, eyes, nose
               <li>rotate so eyes are level, crop to frame head</li>
             </ul>
-            <li>resize to <code>48x48</code>
+            <li>resize to <code>48x48</code></li>
           </ul>
+          <div class="coll-images negatives fragment">
+            <img src="images/neg1.jpg"></img>
+            <img src="images/neg2.jpg"></img>
+            <img src="images/neg3.jpg"></img>
+            <img src="images/neg4.jpg"></img>
+          </div>
+          <div class="coll-images positives fragment">
+            <img src="images/cat1.png"></img>
+            <img src="images/cat2.png"></img>
+            <img src="images/cat3.png"></img>
+            <img src="images/cat4.png"></img>
+          </div>
         </section>
         <section id="training">
           <h1>Training</h1>
@@ -192,7 +204,7 @@ function train(pics) {
 }</code></pre>
         <span class="footie fragment">It finds the best values for <code class="svm-val">b</code> and <code class="svm-val">w</code> ^
           <a class="how-link" href="http://en.wikipedia.org/wiki/Support_vector_machine#Linear_SVM">
-          How?</a></span>
+          How, you ask?</a></span>
         </section>
         <section id="predicting">
           <h2>Is this section a cat head?</h2>
