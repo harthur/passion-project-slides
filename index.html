@@ -12,11 +12,13 @@
     <div class="reveal">
       <div class="slides">
         <section id="intro">
-          <h2 class="group">Passion Project</h2>
+          <div class="group">
+          <h2>Passion Project #2</h2>
+            <div class="intro-date">April 4, 2013</div></div>
           <div id="my-info">
-            <div>Heather Arthur</div>
-            <div>@harthvader</div>
-            <div>github/harthur</div>
+            <span>Heather Arthur</span> |
+            <span>@harthvader</span> |
+            <span>github/harthur</span>
           </div>
         </section>
         <section id="mozilla">
@@ -49,7 +51,7 @@
         <section id="ml-difference">
           <ul class="plain-list">
             <li class="group"><span class="bad">
-              traditional computation</span>: hand-chosen conditionals and params</li>
+              trad. programming</span>: hand-chosen rules</li>
             <li><span class="good">ML algorithms</span>: rules are
               <span class="chosen">learned</span> from data</li>
           </ul>
@@ -174,6 +176,8 @@ function train(pics) {
 
   SVM.train(inputs, labels);
 }</code></pre>
+  <div class="footie">in <a href="http://nodejs.org/">node.js</a></div>
+
         </section>
         <section id="state">
           <h2>What training does</h2>
@@ -186,6 +190,9 @@ function train(pics) {
   "w": [-0.039986109425303, -0.10320175974183, 0.047456416498616, -0.059351675560768, 0.058363533996746, -0.030757724103858, -0.077885096059827,-0.10909238884521, -0.027176815631789, 0.011213708955119,0.11097928973275, 0.02171080491539, 0.087237563435941, -0.011851994166769, -0.083436869138139,0.03666910365707, -0.04060984443935, 0.018076869381974, -0.030717675854092, -0.053448579335487
   ,...]
 }</code></pre>
+        <span class="footie fragment">It finds the best values for <code class="svm-val">b</code> and <code class="svm-val">w</code> ^
+          <a class="how-link" href="http://en.wikipedia.org/wiki/Support_vector_machine#Linear_SVM">
+          How?</a></span>
         </section>
         <section id="predicting">
           <h2>Is this section a cat head?</h2>
@@ -241,17 +248,17 @@ function train(pics) {
         </section>
         <section id="ml-info">
           <h1>DIY</h1>
-          <ul>
+          <ul class="big-list">
             <li>There's more to ML
                 <ul>
                   <li>More than classification</li>
                   <li>Don't always
                     <a href="http://en.wikipedia.org/wiki/Unsupervised_learning">train on labelled data</a></li>
-                  <li>Don't have to use JavaScript (Matlab, Python, R, Java)</li>
+                  <li>Matlab, Python, R, Java</li>
                 </ul>
             </li>
-            <li class="fragment">Stanford Machine Learning (<span class="good">starts April 22</span>!)
-              <a href="http://coursera.org/course/ml">coursera.org/course/ml</a>
+            <li class="fragment">Stanford Machine Learning (<span class="good">starts April 22, 2013</span>!)
+              <div><a href="http://coursera.org/course/ml">coursera.org/course/ml</a></div>
             </li>
             <li class="fragment">
               Starting with a problem and going from there.

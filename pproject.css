@@ -8,7 +8,11 @@ h2 {
 }
 
 li {
-  margin-top: 0.3em !important;
+  margin-top: 0.1em !important;
+}
+
+.big-list > li {
+  margin-top: 0.5em !important;
 }
 
 ul ul > li {
@@ -38,6 +42,10 @@ pre > code {
 
 .level-3 {
   font-size: 1.3em !important;
+}
+
+#my-info {
+  margin-top: 200px;
 }
 
 #ml-title {
@@ -83,6 +91,10 @@ html.transition-slide .reveal {
   vertical-align: middle;
 }
 
+.coll-images img {
+  vertical-align: text-bottom;
+}
+
 #qs {
   font-size: 200%;
   vertical-align: middle;
@@ -101,6 +113,11 @@ html.transition-slide .reveal {
   width: 100px;
 }
 
+.coll-images img {
+  display: inline-block;
+  width: 80px;
+}
+
 .img-src {
   display: inline-block;
   margin-top: 160px !important;
@@ -109,6 +126,26 @@ html.transition-slide .reveal {
 
 .demo-link {
   font-size: 1.2em !important;
+}
+
+.svm-val {
+  color: rgb(0, 128, 128) !important;
+}
+
+.footie {
+  display: inline-block;
+  margin-top: 0.1em !important;
+  font-size: 0.95em !important;
+}
+
+.how-link {
+  margin-left: 0.2em !important;
+  color: grey !important;
+  font-size: 0.7em !important;
+}
+
+.how-link:hover {
+  color: black !important;
 }
 
 #robo-cat {
